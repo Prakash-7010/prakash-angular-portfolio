@@ -2,10 +2,11 @@
 .hero {
   min-height: 88vh;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   align-items: center;
   gap: 60px;
   padding: 100px 8%;
+
   background:
     radial-gradient(
       ellipse at 80% 30%,
@@ -13,6 +14,12 @@
       transparent 45%
     ),
     #080d1a;
+}
+
+/* LEFT SIDE */
+
+.hero-content {
+  min-width: 0;
 }
 
 .role-badge {
@@ -37,7 +44,7 @@ h1 {
   font-weight: 800;
   letter-spacing: -3px;
   line-height: 1.1;
-  color: white;
+  color: #ffffff;
 
   span {
     color: #38bdf8;
@@ -71,11 +78,16 @@ h2 {
   margin-top: 34px;
 
   a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 14px 24px;
     border-radius: 8px;
     font-weight: 600;
     font-size: 14px;
-    transition: transform 0.2s;
+    transition:
+      transform 0.2s ease,
+      background 0.2s ease;
 
     &:hover {
       transform: translateY(-3px);
@@ -86,11 +98,19 @@ h2 {
 .primary-btn {
   background: #38bdf8;
   color: #07111e;
+
+  &:hover {
+    background: #7dd3fc;
+  }
 }
 
 .secondary-btn {
   border: 1px solid #334155;
   color: #e2e8f0;
+
+  &:hover {
+    border-color: #38bdf8;
+  }
 }
 
 .tech-stack {
@@ -108,12 +128,98 @@ h2 {
   }
 }
 
+/* RIGHT SIDE */
+
+.hero-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 26px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* PROFILE IMAGE */
+
+.profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-photo-container {
+  width: 250px;
+  height: 250px;
+  padding: 5px;
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    #38bdf8,
+    #818cf8
+  );
+
+  box-shadow:
+    0 0 35px rgba(56, 189, 248, 0.18),
+    0 15px 35px rgba(0, 0, 0, 0.25);
+
+  overflow: hidden;
+}
+
+.profile-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 43%;
+
+  border: 4px solid #080d1a;
+  border-radius: 50%;
+
+  image-rendering: auto;
+  backface-visibility: hidden;
+}
+
+/* AVAILABILITY STATUS */
+
+.profile-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  color: #7dd3fc;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+
+  box-shadow:
+    0 0 12px rgba(74, 222, 128, 0.55);
+}
+
+/* DEVELOPER CODE CARD */
+
 .code-window {
+  width: 100%;
+  max-width: 520px;
+  min-width: 0;
+
   background: #0f172a;
   border: 1px solid #263449;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.25);
 }
 
 .window-header {
@@ -121,6 +227,7 @@ h2 {
   align-items: center;
   gap: 7px;
   padding: 16px;
+
   border-bottom: 1px solid #263449;
 }
 
@@ -128,11 +235,20 @@ h2 {
   width: 10px;
   height: 10px;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
-.red { background: #fb7185; }
-.yellow { background: #fbbf24; }
-.green { background: #4ade80; }
+.red {
+  background: #fb7185;
+}
+
+.yellow {
+  background: #fbbf24;
+}
+
+.green {
+  background: #4ade80;
+}
 
 .filename {
   margin-left: auto;
@@ -140,29 +256,111 @@ h2 {
   color: #64748b;
 }
 
-pre {
+.code-window pre {
+  margin: 0;
   padding: 26px;
+
   color: #86efac;
-  font-size: 14px;
-  line-height: 2;
+  font-size: 13px;
+  line-height: 1.9;
+
+  white-space: pre;
   overflow-x: auto;
+}
+
+.code-window code {
+  font-family:
+    'Cascadia Code',
+    'Consolas',
+    monospace;
+}
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+  .hero {
+    gap: 35px;
+    padding: 85px 6%;
+  }
+
+  .profile-photo-container {
+    width: 220px;
+    height: 220px;
+  }
 }
 
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
-    padding: 70px 6%;
-    gap: 40px;
+    gap: 50px;
+    padding: 80px 6%;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-visual {
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .code-window {
+    max-width: 100%;
   }
 }
 
+/* MOBILE */
+
 @media (max-width: 480px) {
+  .hero {
+    padding: 65px 6%;
+    gap: 40px;
+  }
+
   h1 {
+    font-size: clamp(42px, 11vw, 60px);
     letter-spacing: -1.5px;
   }
 
-  pre {
+  h2 {
+    font-size: 26px;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .hero-buttons {
+    gap: 12px;
+
+    a {
+      padding: 12px 16px;
+      font-size: 12px;
+    }
+  }
+
+  .tech-stack {
+    margin-top: 25px;
+  }
+
+  .profile-photo-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-visual {
+    gap: 22px;
+  }
+
+  .code-window pre {
     padding: 16px;
-    font-size: 12px;
+    font-size: 11px;
+    line-height: 1.8;
+  }
+
+  .window-header {
+    padding: 13px;
   }
 }

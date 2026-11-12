@@ -1,62 +1,102 @@
+
 <section class="hero" id="home">
-    <div class="hero-content">
-        <div class="role-badge">
-            Full Stack .NET & Angular Developer
-        </div>
 
-        <p class="greeting">Hi, I'm</p>
+  <!-- Left Side: Introduction -->
+  <div class="hero-content">
 
-        <h1>Prakash A<span>.</span></h1>
-
-        <h2>
-            Building scalable
-            <span>web applications.</span>
-        </h2>
-
-        <p class="description">
-            Full Stack Developer with 3.9 years of experience
-            developing enterprise applications using C#,
-            ASP.NET Core Web API, Angular, SQL Server,
-            and Microsoft Azure.
-        </p>
-
-        <div class="hero-buttons">
-            <a href="#projects" class="primary-btn">
-                View My Work ↗
-            </a>
-
-            <a href="/resume/Prakash_A_Resume.pdf" download="Prakash_A_Resume.pdf" class="secondary-btn">
-                ↓ Download Resume
-            </a>
-
-        </div>
-
-        <div class="tech-stack">
-            <span>C#</span>
-            <span>.NET 8</span>
-            <span>Angular</span>
-            <span>SQL Server</span>
-            <span>Azure</span>
-        </div>
+    <div class="role-badge">
+      Full Stack .NET & Angular Developer
     </div>
 
-    <div class="hero-visual">
-        <div class="code-window">
-            <div class="window-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-                <span class="filename">developer.ts</span>
-            </div>
+    <p class="greeting">Hi, I'm</p>
 
-            <pre><code>const developer = {{ '{' }}
+    <h1>Prakash A<span>.</span></h1>
+
+    <h2>
+      Building scalable
+      <span>web applications.</span>
+    </h2>
+
+    <p class="description">
+      Full Stack Developer with
+      {{ experienceService.experience() }}
+      of experience developing enterprise applications
+      using C#, ASP.NET Core Web API, Angular,
+      SQL Server, and Microsoft Azure.
+    </p>
+
+    <!-- Action Buttons -->
+    <div class="hero-buttons">
+
+      <a href="#projects" class="primary-btn">
+        View My Work ↗
+      </a>
+
+      <a
+        href="/resume/Prakash_A_Resume.pdf"
+        download="Prakash_A_Resume.pdf"
+        class="secondary-btn"
+      >
+        ↓ Download Resume
+      </a>
+
+    </div>
+
+    <!-- Technologies -->
+    <div class="tech-stack">
+      <span>C#</span>
+      <span>.NET 8</span>
+      <span>Angular</span>
+      <span>SQL Server</span>
+      <span>Azure</span>
+    </div>
+
+  </div>
+
+  <!-- Right Side: Profile and Code Card -->
+  <div class="hero-visual">
+
+    <!-- Profile Photo -->
+    <div class="profile-wrapper">
+
+      <div class="profile-photo-container">
+        <img
+          src="/images/Prakash_linkedIn.jpg"
+          alt="Prakash A - Full Stack .NET Developer"
+          class="profile-photo"
+          width="230"
+          height="230"
+        />
+      </div>
+
+      <div class="profile-status">
+        <span class="status-dot"></span>
+        Open to Opportunities
+      </div>
+
+    </div>
+
+    <!-- Developer Code Window -->
+    <div class="code-window">
+
+      <div class="window-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="filename">developer.ts</span>
+      </div>
+
+      <pre><code>const developer = {{ '{' }}
   name: 'Prakash A',
   role: 'Full Stack Developer',
-  experience: '3.9 years',
+  experience: '{{ experienceService.experience() }}',
   backend: '.NET Core',
   frontend: 'Angular',
   cloud: 'Azure'
 {{ '}' }};</code></pre>
-        </div>
+
     </div>
+
+  </div>
+
 </section>

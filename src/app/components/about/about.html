@@ -1,4 +1,3 @@
-
 <section class="about-section" id="about">
   <div class="section-heading">
     <span class="section-label">GET TO KNOW ME</span>
@@ -48,7 +47,9 @@
 
     <div class="highlights">
       <div class="highlight-card">
-        <span class="highlight-number">3.9+</span>
+        <span class="highlight-number">
+          {{ experienceService.experience() }}
+        </span>
         <h4>Years of Experience</h4>
         <p>Enterprise application development</p>
       </div>
@@ -59,11 +60,16 @@
         <p>Scalable search and pagination</p>
       </div>
 
+
       <div class="highlight-card">
         <span class="highlight-number">Azure</span>
-        <h4>Cloud Experience</h4>
-        <p>App Services, Blob Storage & DevOps</p>
+        <h4>Cloud & DevOps</h4>
+        <p>
+          App Service Hosting, Azure DevOps CI/CD
+          Pipelines, Blob Storage & Azure SQL
+        </p>
       </div>
+
 
       <div class="highlight-card">
         <span class="highlight-number">AI</span>

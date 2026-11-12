@@ -1,5 +1,6 @@
 
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ExperienceService } from '../../services/experience';
 
 @Component({
   selector: 'app-about',
@@ -8,4 +9,6 @@ import { Component } from '@angular/core';
   templateUrl: './about.html',
   styleUrl: './about.scss'
 })
-export class About {}
+export class About {
+  readonly experienceService = inject(ExperienceService);
+}
